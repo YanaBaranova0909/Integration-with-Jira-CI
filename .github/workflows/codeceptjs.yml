@@ -27,8 +27,13 @@ jobs:
     - name: Update npm
       run: npm install -g npm@11
 
+    - name: Install dependencies
+      run: npm install
+      working-directory: ./codeceptJ
+
     - name: Run CodeceptJS tests
       run: npx codeceptjs run --grep "${{ github.event.inputs.grep }}"
+      working-directory: ./codeceptJS
       env:
         TESTOMATIO: "${{ github.event.inputs.testomatio }}"
         TESTOMATIO_RUN: "${{ github.event.inputs.run }}"
