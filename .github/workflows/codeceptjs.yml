@@ -1,22 +1,15 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: CodeceptJS Tests
+name: Testomatio Tests
 
 on:
   workflow_dispatch:
     inputs:
       grep:
-        description: 'A grep '
+        description: 'tests to grep'
         required: false
         default: ''
-      testomatio:
-        required: false
-      testomatio_url:
-        required: false
       run:
         required: false
-      browsers:
+      testomatio:
         required: false
 
 jobs:
@@ -25,15 +18,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup node
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
       with:
-        node-version: 16.x
-    - run: echo ${{ github.event.inputs.browser }}
-    - run: npm i
-    - run: npx codeceptjs run --grep "${{ github.event.inputs.grep }}"
+        node-version: 24
+        
+    - name: Update npm
+      run: npm install -g npm@11
+
+    - name: Run CodeceptJS tests
+      run: npx codeceptjs run --grep "${{ github.event.inputs.grep }}"
+      working-directory: ./codeceptJS
       env:
         TESTOMATIO: "${{ github.event.inputs.testomatio }}"
-        TESTOMATIO_URL: "${{ github.event.inputs.testomatio_url }}"
         TESTOMATIO_RUN: "${{ github.event.inputs.run }}"
