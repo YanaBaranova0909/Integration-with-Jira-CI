@@ -10,7 +10,6 @@
   "author": "kaflan, davert, mihaylukvv",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.4.0",
     "check-tests": "^0.8.16",
     "dotenv": "^16.3.1",
     "playwright": "^1.36.0"
@@ -26,8 +25,7 @@
   "description": "Running and Monitoring CodeceptJS Tests with TESTOMATIO Reporter",
   "devDependencies": {
     "@codeceptjs/configure": "^0.10.0",
-    "@codeceptjs/ui": "^0.5.0",
     "@testomatio/reporter": "^2.3.7",
-    "codeceptjs": "latest"
+    "codeceptjs": "3.7.4"
   }
 }
