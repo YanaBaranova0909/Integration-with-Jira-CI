@@ -9,7 +9,7 @@ exports.config = {
   output: './output',
   helpers: {
     Playwright: {
-      video: process.env.CI ? false : true,
+      video: true,
       url: 'http://localhost',
       waitForTimeout: 5000,
       waitForNavigation: 'networkidle0',
