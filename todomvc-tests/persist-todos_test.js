@@ -15,9 +15,11 @@ Before(async ({ I, TodosPage }) => {
   I.saveScreenshot('initial-todos.png')
 })
 
-Scenario('Todos survive a page refresh @step-06 @T10d06b6b', async ({ I, TodosPage }) => {
+Scenario('Todos survive a page refresh @step-06 @Tc3a5da67', async ({ I, TodosPage }) => {
+
   I.say('And I marked the first as completed')
   await TodosPage.markNthAsCompleted(1)
+
 
   I.say('When I refresh the page')
   TodosPage.refresh()

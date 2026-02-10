@@ -1,3 +1,5 @@
+const {testomatioLogger} = require('@testomatio/reporter');
+
 Feature('Mark as completed/not completed @step-06 @Se5941735')
 
 Before(async ({ I, TodosPage }) => {
@@ -11,7 +13,13 @@ Before(async ({ I, TodosPage }) => {
 /**
  * Happy Path tests
  */
+
+const { linkTest} = require('@testomatio/reporter');
+
 Scenario('Mark todos as completed @T1e4add6d', async ({ I, TodosPage }) => {
+
+  linkTest('d8f8af6f', '07bc90f5', '@Ta31b0cfc', '@T1e9301b2');
+
   I.say('Given I have some todos')
 
   I.say('When I mark the first one as completed')

@@ -1,4 +1,4 @@
-Feature('codepress demo @S21b7d3ba')
+Feature('codepress demo @Sea0edc85')
 
 Before(async ({ I }) => {
   I.amOnPage('https://todomvc.com/examples/angular/dist/browser/#/all')
